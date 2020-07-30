@@ -18,14 +18,31 @@
         </section>
         <nav>
             <ul class="sf-menu">
-            <?php if(isset($_SESSION['usuarioLogueado'])):?>
+            <?php if(isset($_SESSION['usuarioLogueado'])):
+                       $datos = $_SESSION['usuarioLogueado'];
+       
+       if($datos['tipocuenta']=='Administrador')
+       {
+              ?>
                 <li><a href="registrarcita.php">Registrar Cita</a></li>
-                <li><a href="include/modalmodificar.php">Modificar Cita</a></li>
-                <li><a href="#">Eliminar Cita</a></li>
-                <li><a href="index.php">Listar Cita</a></li>
-                <li><a href="indexmodal.php">Registrar Usuario</a></li>
+                <li><a href="editarcita.php">Modificar Cita</a></li>
+                <li><a href="borrarcitas.php">Eliminar Cita</a></li>
+                <li><a href="listas.php">Listar Cita</a></li>
+                <li><a href="registrarUsuarios.php">Registrar Usuario</a></li>
                 <li><a href="#">Usuario Activo</a></li>
                 <li><a href="cerrarSesion.php">Cerrar Sesión</a></li>
-            <?php endif;?>
+            <?php
+       }
+       else{
+             ?>
+                <li><a href="registrarcita.php">Registrar Cita</a></li>
+                <li><a href="editarcita.php">Modificar Cita</a></li>
+                <li><a href="borrarcitas.php">Eliminar Cita</a></li>
+                <li><a href="listas.php">Listar Cita</a></li>
+                <li><a href="cerrarSesion.php">Cerrar Sesión</a></li>
+                   
+            <?php 
+       }
+   endif;?>
             </ul>
         </nav>

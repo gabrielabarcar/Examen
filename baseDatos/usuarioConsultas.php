@@ -7,3 +7,14 @@
     $user = mysqli_fetch_assoc($resultado);
     return $user;
   } 
+  
+  
+   //registar un producto
+  function guardarUsuario($cedula,$nombre,$usuario,$password,$telefono,$correo,$direccion,$estadocuenta,$tipocuenta){ 
+  $sql = "INSERT INTO USUARIOS(cedula,nombre,usuario,password,telefono,correo,direccion,estadocuenta,tipocuenta) "
+            . "VALUES($cedula,'$nombre','$usuario','$password',$telefono,'$correo','$direccion','$estadocuenta' ,'$tipocuenta')";
+   
+    mysqli_query($GLOBALS['conexion'],$sql);
+ 
+     
+  }  

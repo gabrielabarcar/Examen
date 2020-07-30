@@ -5,11 +5,11 @@ require_once './baseDatos/citasConsultas.php';
     switch ($_POST['accion']) {
         case 'registrar':
             guardarCita();
-            header("location:index.php");
+            header("location:listas.php");
             break;
         case 'actualizar':
-            actualizarCita();
-            header("location:modaleditar.php");
+            actualizarCitaId();
+            header("location:listas.php");
             break;            
     }
   }
@@ -19,7 +19,7 @@ require_once './baseDatos/citasConsultas.php';
     switch ($_GET['accion']) {
         case 'eliminar':
             eliminarCita();
-            header("location:index.php");
+            header("location:listas.php");
             break;  
     }
   }  
@@ -36,11 +36,12 @@ require_once './baseDatos/citasConsultas.php';
   }
   
   function eliminarCita(){
-      $nombredueno = $_GET['nombredueno'];
-      eliminarCitaNombre($nombredueno);
+      $id = $_GET['id'];
+      eliminarCitaID($id);
   }
   
-  function actualizarCitaNoombre(){
+  function actualizarCitaId(){
+      $id = $_POST['id'];
       $nombredueno = $_POST['nombredueno'];
       $nombremascota = $_POST['nombremascota'];
       $raza = $_POST['raza'];
@@ -48,5 +49,5 @@ require_once './baseDatos/citasConsultas.php';
       $fechacita = $_POST['fechacita'];
       $observaciones = $_POST['observaciones'];
 
-      modificarCitaNombre($nombredueno,$nombremascota,$raza,$edadmascota,$fechacita,$observaciones);   
+      modificarCitaId($id,$nombredueno,$nombremascota,$raza,$edadmascota,$fechacita,$observaciones);   
   }

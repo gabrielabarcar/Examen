@@ -1,7 +1,7 @@
 <?php include_once 'include/encabezado.php'; ?>
 <section>
     <br>
-    <h1>Lista de Citas a Editar</h1>
+    <h1>Lista de Citas a Eliminar</h1>
     <table id="t1" border="1">
         <thead>
             <tr>
@@ -28,7 +28,7 @@
                     <td><?=$cita['edadmascota'];?></td>
                     <td><?=$cita['fechacita'];?></td>
                     <td><?=$cita['observaciones'];?></td>
-                    <td><a href="modificarcita.php?id=<?=$cita['id']?>">Modificar</a></td>  
+                    <td><a href="manteCitas.php?accion=eliminar&id=<?=$cita['id']?>">Eliminar</a></td>  
                 </tr> 
         <?php
                endforeach;
