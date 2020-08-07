@@ -10,7 +10,7 @@ require_once './baseDatos/citasConsultas.php';
         case 'actualizar':
             actualizarCitaId();
             header("location:listas.php");
-            break;            
+            break;               
     }
   }
   

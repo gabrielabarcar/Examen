@@ -8,5 +8,3 @@ $baseDatos = 'examen';
 $conexion = mysqli_connect($servidor, $usuario, $password, $baseDatos);
 mysqli_query($conexion, "SET NAMES 'utf8'");
 session_start();
-
-?>

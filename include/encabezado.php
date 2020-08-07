@@ -1,7 +1,10 @@
-<?php require_once './baseDatos/citasConsultas.php'; 
-   if(!isset($_SESSION['usuarioLogueado'])){
+<?php 
+    require_once './baseDatos/citasConsultas.php';
+    require_once './baseDatos/usuarioConsultas.php';
+    if(!isset($_SESSION['usuarioLogueado']))
+    {
        header('location:login.php');
-   }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,31 +21,41 @@
         </section>
         <nav>
             <ul class="sf-menu">
-            <?php if(isset($_SESSION['usuarioLogueado'])):
-                       $datos = $_SESSION['usuarioLogueado'];
-       
-       if($datos['tipocuenta']=='Administrador')
-       {
-              ?>
-                <li><a href="registrarcita.php">Registrar Cita</a></li>
-                <li><a href="editarcita.php">Modificar Cita</a></li>
-                <li><a href="borrarcitas.php">Eliminar Cita</a></li>
-                <li><a href="listas.php">Listar Cita</a></li>
-                <li><a href="registrarUsuarios.php">Registrar Usuario</a></li>
-                <li><a href="#">Usuario Activo</a></li>
-                <li><a href="cerrarSesion.php">Cerrar Sesión</a></li>
-            <?php
-       }
-       else{
-             ?>
-                <li><a href="registrarcita.php">Registrar Cita</a></li>
-                <li><a href="editarcita.php">Modificar Cita</a></li>
-                <li><a href="borrarcitas.php">Eliminar Cita</a></li>
-                <li><a href="listas.php">Listar Cita</a></li>
-                <li><a href="cerrarSesion.php">Cerrar Sesión</a></li>
-                   
-            <?php 
-       }
-   endif;?>
+                <?php if(isset($_SESSION['usuarioLogueado'])):
+                    $datos = $_SESSION['usuarioLogueado'];
+                    if($datos['estadocuenta']=='desactivado')
+                    {
+                        ?>
+                        <h1>Dirijase al administrador para activar usuario</h1>;
+                        <li><a href="cerrarSesion.php">Cerrar Sesión</a></li>
+                        <?php
+                    }
+                     else
+                    {
+                        if($datos['tipocuenta']=='Administrador')
+                        {
+                            ?>
+                              <li><a href="registrarcita.php">Registrar Cita</a></li>
+                              <li><a href="editarcita.php">Modificar Cita</a></li>
+                              <li><a href="borrarcitas.php">Eliminar Cita</a></li>
+                              <li><a href="listas.php">Listar Cita</a></li>
+                              <li><a href="registrarUsuarios.php">Registrar Usuario</a></li>
+                              <li><a href="editarUsuarios.php">Activar Usuario</a></li>
+                              <li><a href="cerrarSesion.php">Cerrar Sesión</a></li>
+                            <?php
+                        }
+                        else{
+                            ?>
+                               <li><a href="registrarcita.php">Registrar Cita</a></li>
+                               <li><a href="editarcita.php">Modificar Cita</a></li>
+                               <li><a href="borrarcitas.php">Eliminar Cita</a></li>
+                               <li><a href="listas.php">Listar Cita</a></li>
+                               <li><a href="cerrarSesion.php">Cerrar Sesión</a></li>
+
+                           <?php 
+                        }
+                    }
+                endif;?>  
             </ul>
         </nav>
+    </body>

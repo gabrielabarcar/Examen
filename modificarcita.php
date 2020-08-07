@@ -2,8 +2,7 @@
 
 if(isset($_GET['id']))
 {
-  $cita= buscarCitaID($_GET['id']);
-  
+  $cita= buscarCitaID($_GET['id']); 
 }
 ?>
 <section>
@@ -20,4 +19,4 @@ if(isset($_GET['id']))
         <input type="submit" name="accion" value="actualizar">
     </form>
 </section>
-<?php include_once 'include/pie.php'; ?>
+<?php include_once 'include/pie.php';?>

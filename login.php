@@ -10,10 +10,9 @@
             <br>
             <h1>INGRESAR</h1>
             <form method="post" action="manteUsuarios.php">		
-                    <input type="text" placeholder="Usuario" name="usuario" required>
+                    <input type="text" placeholder="Usuario" name="usuario" required >
                     <input type="password" placeholder="Password" name="password" required>
                     <input type="submit" name="accion" value="Ingresar">
-                    <input type="submit" name="accion" value="Registrarse">
             </form>
         </section>
         <footer>

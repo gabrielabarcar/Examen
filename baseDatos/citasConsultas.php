@@ -1,7 +1,7 @@
 <?php
   require_once 'conexion.php';
   
-  //listar los productos
+  //listar las citas
   function listarCitas(){    
     $citas = array();
     $sql = "SELECT * FROM CITAS ORDER BY NOMBREDUENO ASC";
@@ -13,7 +13,7 @@
     return $citas;
   }
 
-  //registar un producto
+  //registar una cita
   function guardarCitaNombre($nombredueno,$nombremascota,$raza,$edadmascota,$fechacita,$observaciones){ 
     $sql = "INSERT INTO CITAS(nombredueno,nombremascota,raza,edadmascota,fechacita,observaciones) VALUES ('$nombredueno','$nombremascota','$raza',$edadmascota,'$fechacita','$observaciones')";
     $resultado = mysqli_query($GLOBALS['conexion'], $sql);      
